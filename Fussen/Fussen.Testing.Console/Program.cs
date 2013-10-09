@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 using System;
 using Fussen.Graphics;
 
@@ -17,6 +18,8 @@ namespace Fussen.Testing.Console
 	}
 }
 =======
+=======
+>>>>>>> d0cf1d69c01b64b1b46a9c789c1fbbbec5447d94
 using System;
 using Fussen.Graphics;
 
@@ -34,4 +37,7 @@ namespace Fussen.Testing.Console
 		}
 	}
 }
+<<<<<<< HEAD
+>>>>>>> d0cf1d69c01b64b1b46a9c789c1fbbbec5447d94
+=======
 >>>>>>> d0cf1d69c01b64b1b46a9c789c1fbbbec5447d94
