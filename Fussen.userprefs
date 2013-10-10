@@ -1,0 +1,19 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Fussen.Graphics/ExifManager.cs">
+    <Files>
+      <File FileName="Fussen.Testing.Console/Program.cs" Line="1" Column="1" />
+      <File FileName="Fussen.Graphics/ExifManager.cs" Line="1150" Column="72" />
+      <File FileName="Fussen.Testing.Console/Properties/AssemblyInfo.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/William/Desktop/Fussen/Fussen.Graphics/ExifManager.cs" line="444" column="1" />
+      <Breakpoint file="/Users/William/Desktop/Fussen/Fussen.Graphics/ExifManager.cs" line="1107" column="1" />
+      <Breakpoint file="/Users/William/Desktop/Fussen/Fussen.Graphics/ExifManager.cs" line="1129" column="1" />
+      <Breakpoint file="/Users/William/Desktop/Fussen/Fussen.Graphics/ExifManager.cs" line="1090" column="56" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
