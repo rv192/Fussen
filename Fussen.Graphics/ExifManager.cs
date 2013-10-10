@@ -11,13 +11,12 @@ namespace Fussen.Graphics
         private System.Text.Encoding _Encoding = System.Text.Encoding.UTF8;
 
         #region Type declarations
-        // 
-        // Contains possible values of EXIF tag names (ID)
-        // 
-        // See GdiPlusImaging.h
-        // 
-        // [altair] 10.09.2003 Created
-        // 
+		/// <summary>
+		/// Contains possible values of EXIF tag names (ID)
+		/// </summary>
+		/// <remarks>
+		/// See GdiPlusImaging.h
+		/// </remarks>
         public enum TagNames : int
         {
             ExifIFD = 0x8769,
