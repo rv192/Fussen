@@ -37,11 +37,17 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\ChannelExtension.cs" />
-    <Compile Include="Extensions\CompareNetObjects.cs" />
+    <Compile Include="Extensions\ObjectExtension.cs" />
+    <Compile Include="GlobalSetting.cs" />
+    <Compile Include="Extensions\Comparsion\Difference.cs" />
+    <Compile Include="Extensions\Comparsion\ICompareObjects.cs" />
+    <Compile Include="Extensions\Comparsion\CompareComponent.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Attributes\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Extensions\Comparsion\" />
   </ItemGroup>
 </Project>

@@ -1,10 +1,11 @@
-﻿<Properties>
+﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Fussen.Graphics/ExifManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Fussen.Core/Extensions/CompareNetObjects.cs">
     <Files>
       <File FileName="Fussen.Testing.Console/Program.cs" Line="1" Column="1" />
-      <File FileName="Fussen.Graphics/ExifManager.cs" Line="1150" Column="72" />
-      <File FileName="Fussen.Testing.Console/Properties/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="Fussen.Graphics/ExifViewer.cs" Line="1" Column="1" />
+      <File FileName="Fussen.Core/Extensions/ChannelExtension.cs" Line="1" Column="1" />
+      <File FileName="Fussen.Core/Extensions/CompareNetObjects.cs" Line="20" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

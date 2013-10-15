@@ -4,6 +4,14 @@ using System.Text;
 
 namespace Fussen.Graphics
 {
+	/// <summary>
+	/// <para>A handler class for reading & writing Exif information from photo. </para>
+	/// <para>读写照片EXIF信息的辅助类</para>
+	/// </summary>
+	/// <remarks>
+	/// Compability with .NET on Windows, and Mono(3.2.3) on Linux & Windows but OSX.
+	/// 兼容基于Windows的.NET和基于Windows和Linux的Mono，但不支持基于OSX的Mono。
+	/// </remarks>
     public class ExifViewer : IDisposable
     {
 
@@ -11,13 +19,12 @@ namespace Fussen.Graphics
         private System.Text.Encoding _Encoding = System.Text.Encoding.UTF8;
 
         #region Type declarations
-        // 
-        // Contains possible values of EXIF tag names (ID)
-        // 
-        // See GdiPlusImaging.h
-        // 
-        // [altair] 10.09.2003 Created
-        // 
+		/// <summary>
+		/// Contains possible values of EXIF tag names (ID).
+		/// </summary>
+		/// <remarks>
+		/// See GdiPlusImaging.h
+		/// </remarks>
         public enum TagNames : int
         {
             ExifIFD = 0x8769,
@@ -236,15 +243,9 @@ namespace Fussen.Graphics
             GpsDestDist = 0x1A
         }
 
-
-        // 
-        // Real position of 0th row and column of picture
-        // 
-        // 
-        // 
-        // [altair] 10.09.2003 Created
-        // 
-
+		/// <summary>
+		/// Real position of 0th row and column of picture.
+		/// </summary>
         public enum Orientations
         {
             TopLeft = 1,
@@ -257,15 +258,9 @@ namespace Fussen.Graphics
             LftBottom = 8
         }
 
-
-        // 
-        // Exposure programs
-        // 
-        // 
-        // 
-        // [altair] 10.09.2003 Created
-        // 
-
+		/// <summary>
+		/// Exposure programs
+		/// </summary>
         public enum ExposurePrograms
         {
             Manual = 1,
@@ -278,15 +273,9 @@ namespace Fussen.Graphics
             Landscape = 8,
         }
 
-
-        // 
-        // Exposure metering modes
-        // 
-        // 
-        // 
-        // [altair] 10.09.2003 Created
-        // 
-
+		/// <summary>
+		/// Exposure metering modes.
+		/// </summary>
         public enum ExposureMeteringModes
         {
             Unknown = 0,
@@ -299,15 +288,9 @@ namespace Fussen.Graphics
             Other = 255
         }
 
-
-        // 
-        // Flash activity modes
-        // 
-        // 
-        // 
-        // [altair] 10.09.2003 Created
-        // 
-
+		/// <summary>
+		/// Flash activity modes.
+		/// </summary>
         public enum FlashModes
         {
             NotFired = 0,
@@ -316,15 +299,9 @@ namespace Fussen.Graphics
             FiredAndStrobeReturned = 7,
         }
 
-
-        // 
-        // Possible light sources (white balance)
-        // 
-        // 
-        // 
-        // [altair] 10.09.2003 Created
-        // 
-
+		/// <summary>
+		/// Possible light sources (white balance).
+		/// </summary>
         public enum LightSources
         {
             Unknown = 0,
@@ -341,14 +318,9 @@ namespace Fussen.Graphics
             Other = 255
         }
 
-
-        // 
-        // EXIF data types
-        // 
-        // 
-        // 
-        // [altair] 12.6.2004 Created
-        // 
+		/// <summary>
+		/// EXIF data types.
+		/// </summary>
         public enum ExifDataTypes : short
         {
             UnsignedByte = 1,
@@ -365,30 +337,23 @@ namespace Fussen.Graphics
             DoubleFloat = 12
         }
 
-
-        // 
-        // Represents rational which is type of some Exif properties
-        // 
-        // 
-        // 
-        // [altair] 10.09.2003 Created
-        // 
+		/// <summary>
+		/// Represents rational which is type of some Exif properties.
+		/// </summary>
         public struct Rational
         {
             public Int32 Numerator;
             public Int32 Denominator;
 
-
-            // 
-            // Converts rational to string representation
-            // 
-            // Optional, default "/". String to be used as delimiter of components.
-            // String representation of the rational.
-            // 
-            // 
-            // [altair] 10.09.2003 Created
-            // 
-
+			/// <summary>
+			/// Converts rational to string representation.
+			/// </summary>
+			/// <remarks>
+			/// Optional, default "/". String to be used as delimiter of components.
+			/// </remarks>
+			/// <returns>
+			/// String representation of the rational..
+			/// </returns>
             public override string ToString()
             {
                 return ToString("/");
@@ -399,15 +364,12 @@ namespace Fussen.Graphics
                 return Numerator + "/" + Denominator;
             }
 
-            // 
-            // Converts rational to double precision real number
-            // 
-            // The rational as double precision real number.
-            // 
-            // 
-            // [altair] 10.09.2003 Created
-            // 
-
+			/// <summary>
+			/// Converts rational to double precision real number.
+			/// </summary>
+			/// <returns>
+			/// The rational as double precision real number.
+			/// </returns>
             public double ToDouble()
             {
                 return (double)Numerator / Denominator;
