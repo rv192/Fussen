@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fussen.Testing", "Fussen.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Testing.Console", "Fussen.Testing.Console\Fussen.Testing.Console.csproj", "{0E7A5FE7-0A65-46BF-8591-6D63F2E1C3EE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fusssen.Library", "Fusssen.Library", "{0CFB0730-9A4C-4EBD-980A-779FF6BC7A52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
