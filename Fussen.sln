@@ -1,21 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Core", "Fussen.Core\Fussen.Core.csproj", "{9713855E-5B1F-499A-824B-ACEF2B6ED91C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Net", "Fussen.Net\Fussen.Net.csproj", "{3FAA6E5F-239E-4FAE-B7F0-64AC232E12F5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Web", "Fussen.Web\Fussen.Web.csproj", "{8CA4AEF5-6BC9-4919-9F9A-5B73AE4EC263}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Graphics", "Fussen.Graphics\Fussen.Graphics.csproj", "{9AD46F80-8A38-4757-8EA0-4E4A2AF56A4A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Distributed", "Fussen.Distributed\Fussen.Distributed.csproj", "{D8040EB8-AC9B-42A6-A923-B0A11CF3B143}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fussen.Testing", "Fussen.Testing", "{72095618-283E-401F-88EC-67B99E7A01ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Testing.Console", "Fussen.Testing.Console\Fussen.Testing.Console.csproj", "{0E7A5FE7-0A65-46BF-8591-6D63F2E1C3EE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fusssen.Library", "Fusssen.Library", "{0CFB0730-9A4C-4EBD-980A-779FF6BC7A52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Core", "Fussen.Core\Fussen.Core.csproj", "{9713855E-5B1F-499A-824B-ACEF2B6ED91C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Distributed", "Fussen.Distributed\Fussen.Distributed.csproj", "{D8040EB8-AC9B-42A6-A923-B0A11CF3B143}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Graphics", "Fussen.Graphics\Fussen.Graphics.csproj", "{9AD46F80-8A38-4757-8EA0-4E4A2AF56A4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Net", "Fussen.Net\Fussen.Net.csproj", "{3FAA6E5F-239E-4FAE-B7F0-64AC232E12F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Web", "Fussen.Web\Fussen.Web.csproj", "{8CA4AEF5-6BC9-4919-9F9A-5B73AE4EC263}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference Assemblies", "Reference Assemblies", "{D377F42A-C77C-432D-9118-6DC8DA3B1B7C}"
+	ProjectSection(SolutionItems) = preProject
+		ReferenceAssemblies\Newtonsoft.Json.dll = ReferenceAssemblies\Newtonsoft.Json.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +55,11 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0E7A5FE7-0A65-46BF-8591-6D63F2E1C3EE} = {72095618-283E-401F-88EC-67B99E7A01ED}
+		{9713855E-5B1F-499A-824B-ACEF2B6ED91C} = {0CFB0730-9A4C-4EBD-980A-779FF6BC7A52}
+		{D8040EB8-AC9B-42A6-A923-B0A11CF3B143} = {0CFB0730-9A4C-4EBD-980A-779FF6BC7A52}
+		{9AD46F80-8A38-4757-8EA0-4E4A2AF56A4A} = {0CFB0730-9A4C-4EBD-980A-779FF6BC7A52}
+		{3FAA6E5F-239E-4FAE-B7F0-64AC232E12F5} = {0CFB0730-9A4C-4EBD-980A-779FF6BC7A52}
+		{8CA4AEF5-6BC9-4919-9F9A-5B73AE4EC263} = {0CFB0730-9A4C-4EBD-980A-779FF6BC7A52}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Fussen.Testing.Console\Fussen.Testing.Console.csproj

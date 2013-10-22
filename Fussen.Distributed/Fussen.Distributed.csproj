@@ -9,6 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Fussen.Distributed</RootNamespace>
     <AssemblyName>Fussen.Distributed</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

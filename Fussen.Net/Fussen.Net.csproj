@@ -9,6 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Fussen.Net</RootNamespace>
     <AssemblyName>Fussen.Net</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,10 +31,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\ReferenceAssemblies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CrawlUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Fussen.Core\Fussen.Core.csproj">
+      <Project>{9713855E-5B1F-499A-824B-ACEF2B6ED91C}</Project>
+      <Name>Fussen.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
