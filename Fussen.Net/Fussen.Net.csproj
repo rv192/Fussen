@@ -31,14 +31,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\ReferenceAssemblies\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CrawlUtility.cs" />
+    <Compile Include="Constants\UserAgentType.cs" />
+    <Compile Include="DataContract\RequestDescription.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -46,5 +47,10 @@
       <Project>{9713855E-5B1F-499A-824B-ACEF2B6ED91C}</Project>
       <Name>Fussen.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Constants\" />
+    <Folder Include="DataContract\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 </Project>

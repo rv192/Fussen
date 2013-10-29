@@ -23,7 +23,7 @@ namespace Fussen.Core
 			/// <para>用途：抽象Windows服务的Init，Start, Stop方法</para>
 			/// <para>适用：接口CorsairStudio.Core.MEF.IWinService以及实现该接口的类</para>
 			/// </summary>
-			public const string SERVER_OPERATION_INTERFACE = "CorsairStudio:MEF:Interface:CorsairStudio.Core.MEF.IWinService";
+			public const string SERVER_OPERATION_INTERFACE = "Fussen:MEF:Interface:Fussen.Core.MEF.IWinService";
 		}
 
 		/// <summary>
@@ -37,8 +37,7 @@ namespace Fussen.Core
 			AggregateCatalog aggrCatalog = new AggregateCatalog();
 
 			// 如果参数不为空，则尝试在配置文件中查找MEF化程序集的信息
-			if (aliasExtensions != null && aliasExtensions.Count() > 0)
-			{
+			if (aliasExtensions != null && aliasExtensions.Count () > 0) {
 				// 首先在程序集中查找指定的目标
 //				IList<string> assemblies = Utility.CoreConfiguration.CommonModule.AssemblyExtensions.Assemblies
 //					.Where(e => aliasExtensions.Contains(e.Alias))
@@ -54,22 +53,35 @@ namespace Fussen.Core
 //
 //				// 加载指定的目录下所有程序集
 //				LoadDirectories(aggrCatalog, directories);
+			} else {
+
+				// 若参数为空，则加载本地
+				LoadDirectories (aggrCatalog, new List<string>(){@"."});
 			}
 
-			//An assembly catalog to load information about part from this assembly  
+			//An assembly catalog to load information about part from this assembly
 			var asmCatalog = new AssemblyCatalog(Assembly.GetExecutingAssembly());
 
-			aggrCatalog.Catalogs.Add(asmCatalog);            
+			aggrCatalog.Catalogs.Add(asmCatalog);
 
 			//Create a container  
 			CompositionContainer container = new CompositionContainer(aggrCatalog);
 
-			CompositionBatch batch = new CompositionBatch();
-			ComposablePart part = AttributedModelServices.CreatePart(obj);
-			batch.AddPart(part);
+			// Mefy a object if it's not null.
+			if (obj != null) {
+				CompositionBatch batch = new CompositionBatch ();
 
-			//Composing the parts 
-			container.Compose(batch);
+				ComposablePart part = AttributedModelServices.CreatePart (obj);
+				batch.AddPart (part);
+
+				//Composing the parts 
+				container.Compose (batch);
+			}
+		}
+
+		public static void Mefy(params string[] aliasExtensions)
+		{
+			Mefy(null, aliasExtensions);
 		}
 
 		private static void LoadAssemblies(AggregateCatalog aggrCatalog, IList<string> assemblies)

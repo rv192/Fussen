@@ -8,20 +8,23 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Mozilla.NUniversalCharDet;
-using Fussen.Core.DataContract;
-using Fussen.Core.Constants;
+using Fussen.Net.DataContract;
+using Fussen.Net.Constants;
+using System.ComponentModel.Composition;
 
-namespace Fussen.Core
+namespace Fussen.Net
 {
 	public static class CrawlUtility
 	{
+		private static Random _Random;
+		private static Fussen.Core.Extensions.IUniversalDetector _UniversalDetector;
+
 		static CrawlUtility()
 		{
-			System.Net.ServicePointManager.Expect100Continue = false; 
-
 			_Random = new Random ();
+			_UniversalDetector = new Fussen.Core.Extensions.UniversalDetector ();
+
+			System.Net.ServicePointManager.Expect100Continue = false;
 		}
 
 		#region Detect Encoding Method
@@ -35,20 +38,25 @@ namespace Fussen.Core
 			Encoding result;
 
 			string encodingString = "UTF-8";
-			int nDetLen = 0;
 			byte[] detectBuff = new byte[4096];
-			UniversalDetector Det = new UniversalDetector(null);
+
+			// UniversalDetector Det = new UniversalDetector(null);
 
 			// 从流中读取内容，直到判断出编码类型为止
-			while ((nDetLen = stream.Read(detectBuff, 0, detectBuff.Length)) > 0 && !Det.IsDone())
+			while ((stream.Read(detectBuff, 0, detectBuff.Length)) > 0 && !_UniversalDetector.IsDone())
 			{
-				Det.HandleData(detectBuff, 0, detectBuff.Length);
+				// Det.HandleData(detectBuff, 0, detectBuff.Length);
+				_UniversalDetector.HandleData(detectBuff, 0, detectBuff.Length);
 			}
-			Det.DataEnd();
+			// Det.DataEnd();
+			_UniversalDetector.DataEnd ();
 
-			if (Det.GetDetectedCharset() != null)
+			// if (Det.GetDetectedCharset() != null)
+
+			if(_UniversalDetector.GetDetectedCharset() != null)
 			{
-				encodingString = Det.GetDetectedCharset();
+				// encodingString = Det.GetDetectedCharset();
+				encodingString = _UniversalDetector.GetDetectedCharset();
 			}
 			result = Encoding.GetEncoding(encodingString);
 
@@ -61,17 +69,21 @@ namespace Fussen.Core
 		public static Encoding DetectEncoding(Byte[] bytes)
 		{
 			String DEFAULT_ENCODING = "UTF-8";
-			UniversalDetector detector =
-				new UniversalDetector(null);
-			detector.HandleData(bytes, 0, bytes.Length);
-			detector.DataEnd();
+			// UniversalDetector detector = new UniversalDetector(null);
 
-			String encoding = detector.GetDetectedCharset();
+			// detector.HandleData(bytes, 0, bytes.Length);
+			_UniversalDetector.HandleData(bytes, 0, bytes.Length);
+
+			// detector.DataEnd();
+			_UniversalDetector.DataEnd();
+
+			// String encoding = detector.GetDetectedCharset();
+			String encoding = _UniversalDetector.GetDetectedCharset();
 			if (encoding == null)
 			{
 				encoding = DEFAULT_ENCODING;
 			}
-			detector.Reset();
+			_UniversalDetector.Reset();
 
 			return Encoding.GetEncoding(encoding);
 		}
@@ -160,7 +172,7 @@ namespace Fussen.Core
 						}
 
 						// 如果还是未能获取编码，就调用FireFox的判断类推断
-						if(currentEncoding == null)
+						// if(currentEncoding == null)
 						{
 							currentEncoding = DetectEncoding(result);
 						}
@@ -202,7 +214,7 @@ namespace Fussen.Core
 			}
 			else
 			{
-				throw new DesignTimeException("The RequestMethod of argument 'desc' isn't 'get', please use the method 'PostWebPage' instead.");
+				throw new Fussen.Core.DesignTimeException("The RequestMethod of argument 'desc' isn't 'get', please use the method 'PostWebPage' instead.");
 			}
 		}
 
@@ -245,7 +257,8 @@ namespace Fussen.Core
 				StreamReader reader = new StreamReader(ms, encoding);
 				string jsonContent = reader.ReadToEnd();
 
-				result = JsonConvert.DeserializeObject<Entity>(jsonContent);
+				// ThirdPartnerProvider provider = new ThirdPartnerProvider ();
+				// result = provider.JsonConvertProxy.DeserializeObject<Entity>(jsonContent);
 			}
 
 			return result;
@@ -382,7 +395,8 @@ namespace Fussen.Core
 				StreamReader reader = new StreamReader(ms, encoding);
 				string jsonContent = reader.ReadToEnd();
 
-				result = JsonConvert.DeserializeObject<Entity>(jsonContent);
+				// ThirdPartnerProvider provider = new ThirdPartnerProvider ();
+				// result = provider.JsonConvertProxy.DeserializeObject<Entity>(jsonContent);
 			}
 
 			return result;
@@ -440,6 +454,7 @@ namespace Fussen.Core
 		{
 			String target = new String(' ', source.Length);
 			int ret = LCMapString(LOCALE_SYSTEM_DEFAULT, LCMAP_SIMPLIFIED_CHINESE, source, source.Length, target, source.Length);
+
 			return target;
 		}
 
@@ -483,7 +498,5 @@ namespace Fussen.Core
 
 			task.Start();
 		}
-
-		private static Random _Random;
 	}
 }

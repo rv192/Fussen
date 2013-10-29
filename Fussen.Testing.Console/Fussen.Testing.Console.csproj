@@ -31,6 +31,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -41,6 +42,14 @@
     <ProjectReference Include="..\Fussen.Graphics\Fussen.Graphics.csproj">
       <Project>{9AD46F80-8A38-4757-8EA0-4E4A2AF56A4A}</Project>
       <Name>Fussen.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fussen.Net\Fussen.Net.csproj">
+      <Project>{3FAA6E5F-239E-4FAE-B7F0-64AC232E12F5}</Project>
+      <Name>Fussen.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fussen.Core\Fussen.Core.csproj">
+      <Project>{9713855E-5B1F-499A-824B-ACEF2B6ED91C}</Project>
+      <Name>Fussen.Core</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

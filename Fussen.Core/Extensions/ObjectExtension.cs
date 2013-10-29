@@ -3,7 +3,7 @@ using System;
 using Fussen.Core.Interfaces;
 using Fussen.Core.Extensions.Comparasion;
 
-namespace Fussen.Core
+namespace Fussen.Core.Extensions
 {
 	/// <summary>
 	/// A extension of System.Object. System.Object类的扩展类

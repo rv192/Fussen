@@ -17,10 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Net", "Fussen.Net\Fu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fussen.Web", "Fussen.Web\Fussen.Web.csproj", "{8CA4AEF5-6BC9-4919-9F9A-5B73AE4EC263}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference Assemblies", "Reference Assemblies", "{D377F42A-C77C-432D-9118-6DC8DA3B1B7C}"
-	ProjectSection(SolutionItems) = preProject
-		ReferenceAssemblies\Newtonsoft.Json.dll = ReferenceAssemblies\Newtonsoft.Json.dll
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mefy Reference Projects", "Mefy Reference Projects", "{D377F42A-C77C-432D-9118-6DC8DA3B1B7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUniversalCharDet", "Mefy Reference Projects\Projects\NUniversalCharDet\NUniversalCharDet.csproj", "{D18F01CA-AF1A-476F-8667-52526A31B118}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.Portable40", "Mefy Reference Projects\Projects\Newtonsoft.Json\Newtonsoft.Json.Portable40.csproj", "{959F7F85-C98B-4876-971A-9036224578E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +41,10 @@ Global
 		{8CA4AEF5-6BC9-4919-9F9A-5B73AE4EC263}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CA4AEF5-6BC9-4919-9F9A-5B73AE4EC263}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CA4AEF5-6BC9-4919-9F9A-5B73AE4EC263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{959F7F85-C98B-4876-971A-9036224578E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{959F7F85-C98B-4876-971A-9036224578E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{959F7F85-C98B-4876-971A-9036224578E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{959F7F85-C98B-4876-971A-9036224578E4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9713855E-5B1F-499A-824B-ACEF2B6ED91C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9713855E-5B1F-499A-824B-ACEF2B6ED91C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9713855E-5B1F-499A-824B-ACEF2B6ED91C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,6 +53,10 @@ Global
 		{9AD46F80-8A38-4757-8EA0-4E4A2AF56A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AD46F80-8A38-4757-8EA0-4E4A2AF56A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AD46F80-8A38-4757-8EA0-4E4A2AF56A4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D18F01CA-AF1A-476F-8667-52526A31B118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D18F01CA-AF1A-476F-8667-52526A31B118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D18F01CA-AF1A-476F-8667-52526A31B118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D18F01CA-AF1A-476F-8667-52526A31B118}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D8040EB8-AC9B-42A6-A923-B0A11CF3B143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D8040EB8-AC9B-42A6-A923-B0A11CF3B143}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8040EB8-AC9B-42A6-A923-B0A11CF3B143}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -60,6 +69,8 @@ Global
 		{9AD46F80-8A38-4757-8EA0-4E4A2AF56A4A} = {0CFB0730-9A4C-4EBD-980A-779FF6BC7A52}
 		{3FAA6E5F-239E-4FAE-B7F0-64AC232E12F5} = {0CFB0730-9A4C-4EBD-980A-779FF6BC7A52}
 		{8CA4AEF5-6BC9-4919-9F9A-5B73AE4EC263} = {0CFB0730-9A4C-4EBD-980A-779FF6BC7A52}
+		{D18F01CA-AF1A-476F-8667-52526A31B118} = {D377F42A-C77C-432D-9118-6DC8DA3B1B7C}
+		{959F7F85-C98B-4876-971A-9036224578E4} = {D377F42A-C77C-432D-9118-6DC8DA3B1B7C}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Fussen.Testing.Console\Fussen.Testing.Console.csproj
