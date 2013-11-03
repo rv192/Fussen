@@ -25,7 +25,7 @@ namespace Fussen.Testing.Console
             //System.Console.Write (flag);
 //			System.Console.Write (compareObjects.DifferencesString);
 
-            System.Console.WriteLine(a.CompareForDetails(b, 2));
+            System.Console.WriteLine(a.CompareForDetails(b, 1));
 			System.Console.ReadLine ();
 		}
 	}
