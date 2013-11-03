@@ -10,7 +10,15 @@ namespace Fussen.Core.Extensions
 
 		public UniversalDetector ()
 		{
-			this.Mefy ();
+			try
+            {
+                this.Mefy();
+            }
+            catch (System.ComponentModel.Composition.ChangeRejectedException ex)
+            {
+                var exception = new FailedMefyException("NUniversalCharDet", ex);
+                throw exception;
+            }
 		}
 
 		#region IUniversalDetector implementation

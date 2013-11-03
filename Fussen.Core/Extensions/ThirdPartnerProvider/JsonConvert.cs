@@ -10,7 +10,15 @@ namespace Fussen.Core.Extensions
 
 		public JsonConvert ()
 		{
-			this.Mefy ();
+            try
+            {
+                this.Mefy();
+            }
+            catch(System.ComponentModel.Composition.ChangeRejectedException ex)
+            {
+                var exception = new FailedMefyException("Newtonsoft.Json", ex);
+                throw exception;
+            }
 		}
 
 		#region IJsonConvert implementation

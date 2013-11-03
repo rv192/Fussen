@@ -22,7 +22,7 @@ namespace Fussen.Core.Extensions
 		{
 			bool result;
 
-			result = GlobalSetting.CompareComponent.Compare (target);
+            result = GlobalSetting.CompareComponent.Compare(original, target);
 
 			return result;
 		}

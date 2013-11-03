@@ -11,11 +11,16 @@ using System.Net;
 using System.Text;
 using System.Reflection;
 using System.Collections;
-
-using Fussen.Core.Interfaces;
 #if !SILVERLIGHT 
 using System.Data;
+using Fussen.Core.Interfaces;
+
 #endif
+
+#if USE_SETTINGS
+using KellermanSoftware.CompareNETObjects.Properties;
+#endif
+
 #endregion
 
 //This software is provided free of charge from Kellerman Software.
@@ -42,6 +47,40 @@ using System.Data;
 // * Excel Reports 
 // * Word Reports
 
+#region License
+//Microsoft Public License (Ms-PL)
+
+//This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.
+
+//1. Definitions
+
+//The terms "reproduce," "reproduction," "derivative works," and "distribution" have the same meaning here as under U.S. copyright law.
+
+//A "contribution" is the original software, or any additions or changes to the software.
+
+//A "contributor" is any person that distributes its contribution under this license.
+
+//"Licensed patents" are a contributor's patent claims that read directly on its contribution.
+
+//2. Grant of Rights
+
+//(A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to reproduce its contribution, prepare derivative works of its contribution, and distribute its contribution or any derivative works that you create.
+
+//(B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed patents to make, have made, use, sell, offer for sale, import, and/or otherwise dispose of its contribution in the software or derivative works of the contribution in the software.
+
+//3. Conditions and Limitations
+
+//(A) No Trademark License- This license does not grant you rights to use any contributors' name, logo, or trademarks.
+
+//(B) If you bring a patent claim against any contributor over patents that you claim are infringed by the software, your patent license from such contributor to the software ends automatically.
+
+//(C) If you distribute any portion of the software, you must retain all copyright, patent, trademark, and attribution notices that are present in the software.
+
+//(D) If you distribute any portion of the software in source code form, you may do so only under this license by including a complete copy of this license with your distribution. If you distribute any portion of the software in compiled or object code form, you may only do so under a license that complies with this license.
+
+//(E) The software is licensed "as-is." You bear the risk of using it. The contributors give no express warranties, guarantees or conditions. You may have additional consumer rights under your local laws which this license cannot change. To the extent permitted under your local laws, the contributors exclude the implied warranties of merchantability, fitness for a particular purpose and non-infringement.
+#endregion
+
 namespace Fussen.Core.Extensions.Comparasion
 {
     /// <summary>
@@ -63,7 +102,7 @@ namespace Fussen.Core.Extensions.Comparasion
     ///    Console.WriteLine(compareObjects.DifferencesString);
     /// 
     /// </example>
-    public class CompareComponent : ICompareObjects
+    public class CompareComponent : ICompareComponent
     {
         #region Class Variables
         private readonly Stopwatch _watch = new Stopwatch();
@@ -298,20 +337,34 @@ namespace Fussen.Core.Extensions.Comparasion
         #endregion
 
         #region Constructor
+
+        /// <summary>
+        /// Set up defaults for the comparison
+        /// </summary>
+        /// <param name="useAppConfigSettings">If true, use settings from the app.config</param>
+        public CompareComponent(bool useAppConfigSettings)
+        {
+            Setup(useAppConfigSettings);
+        }
+
         /// <summary>
         /// Set up defaults for the comparison
         /// </summary>
         public CompareComponent()
         {
-			this.Initialize ();
+            Setup(false);
         }
 
-		/// <summary>
-		/// <para>Initialize all properties of CompareObjects to set up how it works.</para>
-		/// <para>通过初始化CompareObjects对象实例的关键属性，设置实例如何进行比较。</para>
-		/// <para>可以通过重载该方法，设定专有的对比实例对象。</para>
-		/// </summary>
-		public void Initialize()
+        private void Setup(bool useAppConfigSettings)
+        {
+            Differences = new List<Difference>();
+            AttributesToIgnore = new List<Type>();
+            CustomComparer = null;
+
+            SetupWithoutReadingSettings();
+        }
+
+        private void SetupWithoutReadingSettings()
         {
             ElementsToIgnore = new List<string>();
             ElementsToInclude = new List<string>();
@@ -334,6 +387,7 @@ namespace Fussen.Core.Extensions.Comparasion
             ExpectedName = "Expected";
             ActualName = "Actual";
         }
+        
 
         #endregion
 

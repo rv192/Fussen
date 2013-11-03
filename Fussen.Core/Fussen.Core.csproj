@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -38,13 +38,15 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\DepolymentException.cs" />
+    <Compile Include="Exceptions\FailedMefyException.cs" />
+    <Compile Include="Extensions\Comparsion\CompareComponent.cs" />
+    <Compile Include="Extensions\Comparsion\Difference.cs" />
+    <Compile Include="Extensions\Comparsion\ICompareComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\ChannelExtension.cs" />
     <Compile Include="Extensions\ObjectExtension.cs" />
     <Compile Include="GlobalSetting.cs" />
-    <Compile Include="Extensions\Comparsion\Difference.cs" />
-    <Compile Include="Extensions\Comparsion\ICompareObjects.cs" />
-    <Compile Include="Extensions\Comparsion\CompareComponent.cs" />
     <Compile Include="Exceptions\DesignTimeException.cs" />
     <Compile Include="MefyUtiliy.cs" />
     <Compile Include="AssemblyLoader\Loader.cs" />
@@ -56,14 +58,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Extensions\" />
     <Folder Include="Attributes\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Extensions\Comparsion\" />
-    <Folder Include="DataContract\" />
     <Folder Include="Constants\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="AssemblyLoader\" />
-    <Folder Include="Extensions\ThirdPartnerProvider\" />
+    <Folder Include="DataContract\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>

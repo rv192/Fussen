@@ -1,6 +1,6 @@
 using System;
-using Fussen.Graphics;
-using Fussen.Net;
+using KellermanSoftware.CompareNetObjects;
+
 using Fussen.Core.Extensions;
 
 namespace Fussen.Testing.Console
@@ -11,16 +11,21 @@ namespace Fussen.Testing.Console
 		{
 //			ExifViewer info = new ExifViewer ("I:\\百度云\\德希游\\Photo2013\\20130923_1927_20-920T-3283.jpg");
 //
-//			System.Console.Write (info.ToString ());
-//			ThirdPartnerProvider provider = new ThirdPartnerProvider ();
-//
-			IJsonConvert convert = new JsonConvert ();
+            //System.Console.Write(info.ToString());
+            IJsonConvert covert = new JsonConvert();
+
+			// CompareObjects compareObjects = new CompareObjects();
+
 			A a = new A () { BB = "1234", ID = Guid.NewGuid (), Count = 100 };
-			A b = new A () { BB = "1234", ID = Guid.NewGuid (), Count = 100 };
+            A b = new A() { BB = "1234", ID = a.ID, Count = 100 };
 
-			bool flag = a.Compare (b);
-			// System.Console.Write (a1.Compare (a));
+//			bool flag = compareObjects.Compare (a, b);
+            //bool flag = a.Compare (b);
 
+            //System.Console.Write (flag);
+//			System.Console.Write (compareObjects.DifferencesString);
+
+            System.Console.WriteLine(covert.SerializeObject(a));
 			System.Console.ReadLine ();
 		}
 	}
